@@ -1,0 +1,185 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: $bg-base;
+  color: $text-primary;
+  font-family: $font-sans;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+@include custom-scrollbar;
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  color: inherit;
+  outline: none;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  color: inherit;
+  outline: none;
+}
+
+code, pre {
+  font-family: $font-mono;
+}
+
+// Global ambient background mesh
+.ambient-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($primary, 0.12) 0%, rgba($primary, 0) 70%);
+    top: -150px;
+    left: 20%;
+    filter: blur(80px);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($cyan, 0.08) 0%, rgba($cyan, 0) 70%);
+    bottom: 10%;
+    right: 15%;
+    filter: blur(90px);
+  }
+}
+
+// Utility Layout Classes
+.container-craft {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  @include mobile {
+    padding: 0 16px;
+  }
+}
+
+// Glass Card Base
+.craft-card {
+  background: $bg-card;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  position: relative;
+  transition: border-color $transition-smooth, box-shadow $transition-smooth;
+
+  &:hover {
+    border-color: $border-medium;
+  }
+}
+
+// Buttons
+.craft-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: $radius-sm;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all $transition-smooth;
+  position: relative;
+  user-select: none;
+
+  &.craft-btn-primary {
+    background: linear-gradient(135deg, $primary 0%, #4f46e5 100%);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba($primary, 0.35);
+
+    &:hover {
+      box-shadow: 0 6px 20px rgba($primary, 0.5);
+      transform: translateY(-1px);
+    }
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &.craft-btn-subtle {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid $border-subtle;
+    color: $text-secondary;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: $text-primary;
+      border-color: $border-medium;
+    }
+  }
+
+  &.craft-btn-icon {
+    padding: 8px;
+    border-radius: $radius-sm;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid $border-subtle;
+    color: $text-secondary;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.09);
+      color: $text-primary;
+      border-color: $border-medium;
+    }
+  }
+}
+
+// Badges
+.craft-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  border-radius: $radius-full;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: rgba(99, 102, 241, 0.12);
+  color: $text-primary;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+
+  &.craft-badge-cyan {
+    background: rgba(6, 182, 212, 0.12);
+    border-color: rgba(6, 182, 212, 0.25);
+    color: $cyan;
+  }
+}

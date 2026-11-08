@@ -1,0 +1,25 @@
+{
+  "name": "cascade-craft",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Modern Interactive CSS Generator, Playground & Reference with High Aesthetics and Zero Learning Curve",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@vueuse/core": "^12.0.0",
+    "lucide-vue-next": "^1.0.0",
+    "nuxt": "^4.0.0",
+    "sass": "^1.83.0",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.14.0"
+  }
+}

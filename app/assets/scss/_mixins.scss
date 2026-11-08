@@ -1,0 +1,74 @@
+// CascadeCraft SCSS Mixins
+@use './variables' as *;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin glass-panel($blur: 16px, $opacity: 0.72) {
+  background: rgba($bg-surface, $opacity);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid $border-subtle;
+}
+
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: $radius-full;
+    &:hover {
+      background: rgba(255, 255, 255, 0.22);
+    }
+  }
+}
+
+@mixin text-gradient($angle: 135deg, $from: $primary, $to: $cyan) {
+  background: linear-gradient($angle, $from, $to);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin interactive-hover {
+  transition: all $transition-smooth;
+  &:hover {
+    border-color: $border-medium;
+    transform: translateY(-1px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Responsive
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1025px) {
+    @content;
+  }
+}
