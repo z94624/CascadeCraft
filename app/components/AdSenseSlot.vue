@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 
 const props = withDefaults(
   defineProps<{
@@ -8,15 +8,22 @@ const props = withDefaults(
     adFormat?: 'auto' | 'fluid' | 'rectangle' | 'horizontal';
     isResponsive?: boolean;
     slotTitle?: string;
+    showPlaceholder?: boolean;
   }>(),
   {
     adClient: '', // Provide 'ca-pub-xxxxxxxxxxxxxxxx' in production
     adSlot: '',
     adFormat: 'auto',
     isResponsive: true,
-    slotTitle: 'CascadeCraft Sponsor Slot'
+    slotTitle: 'CascadeCraft Sponsor Slot',
+    showPlaceholder: false // Temporarily hidden until Google Ad monetization is activated
   }
 );
+
+// Only display when real ad credentials exist, or explicitly requested
+const isVisible = computed(() => {
+  return Boolean((props.adClient && props.adSlot) || props.showPlaceholder);
+});
 
 const adLoaded = ref(false);
 
@@ -44,7 +51,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="adsense-container" :class="[`format-${adFormat}`]">
+  <div v-if="isVisible" class="adsense-container" :class="[`format-${adFormat}`]">
     <!-- When client ID is active and production ad script runs -->
     <ins
       v-if="adClient && adSlot"
@@ -56,8 +63,8 @@ onMounted(() => {
       :data-full-width-responsive="isResponsive ? 'true' : 'false'"
     />
 
-    <!-- Minimalist Placeholder when not configured / in development -->
-    <div v-else class="ad-placeholder">
+    <!-- Minimalist Placeholder when explicitly enabled in development -->
+    <div v-else-if="showPlaceholder" class="ad-placeholder">
       <div class="ad-tag">
         <span class="dot" />
         <span>ADVERTISEMENT · {{ slotTitle }}</span>
@@ -74,62 +81,64 @@ onMounted(() => {
 
 .adsense-container {
   width: 100%;
-  margin: 24px 0;
+  margin: 32px 0;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &.format-auto {
+    min-height: 90px;
+  }
+
+  &.format-rectangle {
+    min-height: 250px;
+  }
+
+  &.format-horizontal {
+    min-height: 90px;
+  }
 }
 
 .ad-placeholder {
   width: 100%;
-  min-height: 80px;
-  border: 1px dashed rgba(255, 255, 255, 0.1);
-  background: rgba(16, 18, 26, 0.4);
+  max-width: 900px;
+  padding: 24px;
   border-radius: $radius-md;
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.015);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 16px;
-  color: $text-muted;
-  transition: border-color $transition-smooth;
+  gap: 8px;
+  transition: all $transition-smooth;
 
   &:hover {
-    border-color: rgba(99, 102, 241, 0.3);
+    border-color: rgba(99, 102, 241, 0.25);
+    background: rgba(99, 102, 241, 0.02);
   }
 
   .ad-tag {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 10px;
-    letter-spacing: 0.08em;
+    font-size: 11px;
     font-weight: 600;
-    color: $text-secondary;
+    letter-spacing: 0.08em;
+    color: $text-muted;
     text-transform: uppercase;
 
     .dot {
       width: 5px;
       height: 5px;
       border-radius: 50%;
-      background: $cyan;
-      box-shadow: 0 0 6px $cyan;
+      background: rgba(255, 255, 255, 0.3);
     }
   }
 
   .ad-desc {
-    font-size: 11px;
-    color: $text-muted;
+    font-size: 12px;
+    color: rgba($text-muted, 0.7);
   }
-}
-
-.format-horizontal .ad-placeholder {
-  min-height: 90px;
-}
-
-.format-rectangle .ad-placeholder {
-  min-height: 250px;
-  max-width: 300px;
 }
 </style>
