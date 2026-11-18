@@ -1,0 +1,67 @@
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "reference": "Reference",
+    "geo": "GEO / LLM",
+    "github": "GitHub",
+    "boxShadow": "Box Shadow",
+    "cubicBezier": "Cubic Bezier",
+    "flexbox": "Flexbox",
+    "grid": "Grid",
+    "glass": "Glass",
+    "gradient": "Gradient",
+    "borderRadius": "Border Radius"
+  },
+  "home": {
+    "heroPill": "Nuxt 4 · Tailwind · SCSS · GEO Ready",
+    "heroTitle1": "Modern High-Aesthetic Interactive",
+    "heroTitle2": "CSS Playground & Generator",
+    "heroDesc": "Say goodbye to verbose text tutorials. In an ultra-minimalist immersive dark canvas, adjust high-precision sliders, cubic curves, and intuitive coordinates. Play to understand, with instant export to pure CSS, SCSS variables, and Tailwind CSS classes.",
+    "searchPlaceholder": "Search CSS tools or properties (e.g. shadow, bezier, flex, grid, blur)...",
+    "allModules": "All Modules",
+    "openTool": "Open Playground →",
+    "presets": "Presets",
+    "moduleCount": "{n} tools available",
+    "filters": {
+      "All": "All",
+      "Effects": "Effects",
+      "Animation": "Animation",
+      "Layout": "Layout",
+      "Box Model": "Box Model"
+    }
+  },
+  "tools": {
+    "boxShadow": "Box Shadow Generator",
+    "cubicBezier": "Cubic Bezier Curve Editor",
+    "flexbox": "Flexbox Layout Simulator",
+    "grid": "CSS Grid Builder",
+    "glassmorphism": "Glassmorphism Studio",
+    "gradient": "CSS Gradient Mixer",
+    "borderRadius": "Fancy Border Radius",
+    "reference": "CSS Properties Reference"
+  },
+  "export": {
+    "copy": "Copy Code",
+    "copied": "Copied!",
+    "css": "CSS",
+    "scss": "SCSS",
+    "tailwind": "Tailwind"
+  },
+  "common": {
+    "back": "← Back",
+    "presets": "Presets",
+    "addLayer": "+ Add Layer",
+    "deleteLayer": "Delete",
+    "preview": "Preview",
+    "controls": "Controls",
+    "reset": "Reset",
+    "playground": "Playground"
+  },
+  "footer": {
+    "tagline": "Modern High-Aesthetic Interactive CSS Platform with Zero Learning Curve",
+    "madeWith": "Made with",
+    "and": "and",
+    "nuxt": "Nuxt 4",
+    "rights": "Open source under MIT License"
+  }
+}

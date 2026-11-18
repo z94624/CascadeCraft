@@ -64,7 +64,7 @@ const generatedTailwind = computed(() => {
   <div class="grid-studio container-craft">
     <div class="studio-header">
       <div class="header-left">
-        <NuxtLink to="/" class="back-link">← 返回儀表板</NuxtLink>
+        <NuxtLink to="/" class="back-link">{{ $t('common.back') }}</NuxtLink>
         <h1 class="studio-title">CSS Grid 網格工坊</h1>
         <p class="studio-desc">二維動態網格矩陣生成、多軌道比例配置與即時視窗佈局</p>
       </div>

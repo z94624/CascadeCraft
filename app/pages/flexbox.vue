@@ -127,7 +127,7 @@ const generatedTailwind = computed(() => {
     <!-- Header -->
     <div class="studio-header">
       <div class="header-left">
-        <NuxtLink to="/" class="back-link">← 返回儀表板</NuxtLink>
+        <NuxtLink to="/" class="back-link">{{ $t('common.back') }}</NuxtLink>
         <h1 class="studio-title">Flexbox 佈局工坊</h1>
         <p class="studio-desc">容器對齊、排列方向與子項目彈性伸縮即時演算</p>
       </div>

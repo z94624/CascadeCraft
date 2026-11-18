@@ -2,12 +2,14 @@
 import { ref, computed } from 'vue';
 import { CSS_MODULES } from '../../data/cssModules';
 
+const { t } = useI18n();
+
 useHead({
-  title: '現代高美感互動式 CSS 樣式操作與匯出平台',
+  title: 'CascadeCraft · Modern Interactive CSS Platform',
   meta: [
     {
       name: 'description',
-      content: '零學習成本的現代 CSS 視覺化操作平台。微型直覺控制器、即時大畫布預覽、支援 CSS / SCSS / Tailwind 一鍵匯出，全面超車傳統 CSS 工具站。'
+      content: 'Zero-learning-curve modern CSS visual playground with real-time sliders, cubic bezier curves, and one-click CSS, SCSS, and Tailwind export.'
     }
   ]
 });
@@ -37,17 +39,16 @@ const filteredModules = computed(() => {
     <section class="hero-section">
       <div class="hero-pill">
         <span class="pill-dot" />
-        <span>Nuxt 4 · Tailwind · SCSS · GEO Ready</span>
+        <span>{{ t('home.heroPill') }}</span>
       </div>
 
       <h1 class="hero-title">
-        現代高美感互動式 <br />
-        <span class="gradient-text">CSS 樣式操作與匯出平台</span>
+        {{ t('home.heroTitle1') }} <br />
+        <span class="gradient-text">{{ t('home.heroTitle2') }}</span>
       </h1>
 
       <p class="hero-desc">
-        徹底告別繁冗說明的純文字教學。在極簡深色沉浸畫布中，透過高精密度滑桿、貝茲曲線與直覺座標操縱，
-        動手玩即懂，一鍵輸出純淨 CSS、SCSS 變數與 Tailwind CSS 類別。
+        {{ t('home.heroDesc') }}
       </p>
 
       <!-- Search & Filters -->
@@ -60,7 +61,7 @@ const filteredModules = computed(() => {
           <input
             v-model="searchQuery"
             type="text"
-            placeholder="搜尋 CSS 工具或屬性 (例如: shadow, bezier, flex, grid, blur)..."
+            :placeholder="t('home.searchPlaceholder')"
             class="search-input"
           />
           <button v-if="searchQuery" class="clear-btn" @click="searchQuery = ''">✕</button>
@@ -75,7 +76,7 @@ const filteredModules = computed(() => {
             :class="{ active: selectedCategory === cat }"
             @click="selectedCategory = cat"
           >
-            {{ cat === 'All' ? '全部模組' : cat }}
+            {{ t(`home.filters.${cat}`) }}
           </button>
         </div>
       </div>
@@ -112,7 +113,7 @@ const filteredModules = computed(() => {
           </div>
 
           <div class="card-footer">
-            <span class="open-link">開啟操作區 →</span>
+            <span class="open-link">{{ t('home.openTool') }}</span>
           </div>
         </NuxtLink>
       </div>

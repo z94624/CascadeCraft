@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+
+const { t } = useI18n();
 
 const props = defineProps<{
   cssCode: string;
@@ -74,7 +76,7 @@ const copyToClipboard = async () => {
         <svg v-else class="icon check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
           <polyline points="20 6 9 17 4 12" />
         </svg>
-        <span>{{ copied ? '已複製！' : '一鍵複製' }}</span>
+        <span>{{ copied ? t('export.copied') : t('export.copy') }}</span>
       </button>
     </div>
 

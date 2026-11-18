@@ -63,7 +63,7 @@ const applyPreset = (vals: number[]) => {
   <div class="radius-studio container-craft">
     <div class="studio-header">
       <div class="header-left">
-        <NuxtLink to="/" class="back-link">← 返回儀表板</NuxtLink>
+        <NuxtLink to="/" class="back-link">{{ $t('common.back') }}</NuxtLink>
         <h1 class="studio-title">Fancy Border Radius 圓角工坊</h1>
         <p class="studio-desc">非對稱八值圓角與有機幾何流體形態即時操縱</p>
       </div>

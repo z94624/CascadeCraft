@@ -70,7 +70,7 @@ const getTargetStyle = (prop: CssPropertyItem) => {
     <!-- Header -->
     <div class="page-header">
       <div class="header-left">
-        <NuxtLink to="/" class="back-link">← 返回儀表板</NuxtLink>
+        <NuxtLink to="/" class="back-link">{{ $t('common.back') }}</NuxtLink>
         <h1 class="page-title">CSS 屬性字典 (對標 MDN)</h1>
         <p class="page-desc">每個屬性皆內嵌即時微型測試台，動手即見反饋</p>
       </div>

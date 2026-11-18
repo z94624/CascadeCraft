@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 
+const { t } = useI18n();
+
 useHead({
   title: 'Box Shadow 擬真立體陰影產生器',
   meta: [
@@ -152,7 +154,7 @@ const applyPreset = (preset: 'elevation' | 'neonCyan' | 'softInset' | 'glowPurpl
     <!-- Header -->
     <div class="studio-header">
       <div class="header-left">
-        <NuxtLink to="/" class="back-link">← 返回儀表板</NuxtLink>
+        <NuxtLink to="/" class="back-link">{{ t('common.back') }}</NuxtLink>
         <h1 class="studio-title">Box Shadow 陰影工坊</h1>
         <p class="studio-desc">多層次微調、立體景深與邊界微光即時預覽</p>
       </div>

@@ -66,7 +66,7 @@ const generatedTailwind = computed(() => {
   <div class="glass-studio container-craft">
     <div class="studio-header">
       <div class="header-left">
-        <NuxtLink to="/" class="back-link">← 返回儀表板</NuxtLink>
+        <NuxtLink to="/" class="back-link">{{ $t('common.back') }}</NuxtLink>
         <h1 class="studio-title">Glassmorphism 毛玻璃工坊</h1>
         <p class="studio-desc">Apple 旗艦級毛玻璃磨砂質感、背景濾鏡與邊界反射即時演算</p>
       </div>
