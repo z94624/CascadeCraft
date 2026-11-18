@@ -67,7 +67,10 @@ export default defineNuxtConfig({
         { property: 'og:type', content: 'website' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'ai-optimized', content: 'true' },
-        { name: 'generator', content: 'CascadeCraft Nuxt 4 + Nuxt UI Engine' }
+        { name: 'generator', content: 'CascadeCraft Nuxt 4 + Nuxt UI Engine' },
+        ...(process.env.GOOGLE_SITE_VERIFICATION
+          ? [{ name: 'google-site-verification', content: process.env.GOOGLE_SITE_VERIFICATION }]
+          : [])
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },

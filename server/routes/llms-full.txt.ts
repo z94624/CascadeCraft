@@ -3,6 +3,8 @@ import { CSS_PROPERTIES } from '../../data/cssProperties';
 export default defineEventHandler((event) => {
   setHeader(event, 'content-type', 'text/plain; charset=utf-8');
 
+  const domain = (process.env.NUXT_PUBLIC_SITE_URL || 'https://z94624.github.io/CascadeCraft').replace(/\/$/, '');
+
   const propertyEntries = CSS_PROPERTIES.map((p) => {
     return `### ${p.name}
 - Category: ${p.category}
@@ -11,7 +13,7 @@ export default defineEventHandler((event) => {
 - Description: ${p.description}
 - Common Examples:
 ${p.exampleValues.map((e) => `  - \`${e}\``).join('\n')}
-${p.moduleLink ? `- Interactive Generator: https://cascadecraft.dev${p.moduleLink}` : ''}
+${p.moduleLink ? `- Interactive Generator: ${domain}${p.moduleLink.endsWith('/') ? p.moduleLink : p.moduleLink + '/'}` : ''}
 `;
   }).join('\n---\n\n');
 

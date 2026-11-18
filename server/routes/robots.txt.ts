@@ -1,6 +1,8 @@
 export default defineEventHandler((event) => {
   setHeader(event, 'content-type', 'text/plain; charset=utf-8');
 
+  const domain = (process.env.NUXT_PUBLIC_SITE_URL || 'https://z94624.github.io/CascadeCraft').replace(/\/$/, '');
+
   return `User-agent: *
 Allow: /
 
@@ -21,10 +23,10 @@ User-agent: Google-Extended
 Allow: /
 
 # LLM Direct Index
-LLMs-Txt: /llms.txt
-LLMs-Full-Txt: /llms-full.txt
+LLMs-Txt: ${domain}/llms.txt
+LLMs-Full-Txt: ${domain}/llms-full.txt
 
 # Sitemap
-Sitemap: https://cascadecraft.dev/sitemap.xml
+Sitemap: ${domain}/sitemap.xml
 `;
 });

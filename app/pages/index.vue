@@ -10,6 +10,50 @@ useHead({
     {
       name: 'description',
       content: 'Zero-learning-curve modern CSS visual playground with real-time sliders, cubic bezier curves, and one-click CSS, SCSS, and Tailwind export.'
+    },
+    {
+      property: 'og:title',
+      content: 'CascadeCraft · Modern Interactive CSS Platform'
+    },
+    {
+      property: 'og:description',
+      content: 'Zero-learning-curve modern CSS visual playground with real-time sliders, cubic bezier curves, and one-click CSS, SCSS, and Tailwind export.'
+    },
+    {
+      property: 'og:url',
+      content: 'https://z94624.github.io/CascadeCraft/'
+    }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'WebSite',
+            name: 'CascadeCraft',
+            url: 'https://z94624.github.io/CascadeCraft/',
+            description: 'Modern high-aesthetic interactive CSS visual toolbox and property playground.',
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: 'https://z94624.github.io/CascadeCraft/?q={search_term_string}',
+              'query-input': 'required name=search_term_string'
+            }
+          },
+          {
+            '@type': 'SoftwareApplication',
+            name: 'CascadeCraft CSS Playground',
+            applicationCategory: 'DeveloperApplication',
+            operatingSystem: 'All',
+            offers: {
+              '@type': 'Offer',
+              price: '0',
+              priceCurrency: 'USD'
+            }
+          }
+        ]
+      })
     }
   ]
 });

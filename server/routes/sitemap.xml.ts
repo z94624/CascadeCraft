@@ -1,19 +1,19 @@
 export default defineEventHandler((event) => {
   setHeader(event, 'content-type', 'application/xml; charset=utf-8');
 
-  const domain = 'https://cascadecraft.dev';
+  const domain = (process.env.NUXT_PUBLIC_SITE_URL || 'https://z94624.github.io/CascadeCraft').replace(/\/$/, '');
   const lastmod = new Date().toISOString().split('T')[0];
 
   const routes = [
     { loc: '/', changefreq: 'daily', priority: '1.0' },
-    { loc: '/box-shadow', changefreq: 'weekly', priority: '0.9' },
-    { loc: '/cubic-bezier', changefreq: 'weekly', priority: '0.9' },
-    { loc: '/flexbox', changefreq: 'weekly', priority: '0.9' },
-    { loc: '/grid', changefreq: 'weekly', priority: '0.9' },
-    { loc: '/glassmorphism', changefreq: 'weekly', priority: '0.8' },
-    { loc: '/gradient', changefreq: 'weekly', priority: '0.8' },
-    { loc: '/border-radius', changefreq: 'weekly', priority: '0.8' },
-    { loc: '/reference', changefreq: 'daily', priority: '0.9' }
+    { loc: '/box-shadow/', changefreq: 'weekly', priority: '0.9' },
+    { loc: '/cubic-bezier/', changefreq: 'weekly', priority: '0.9' },
+    { loc: '/flexbox/', changefreq: 'weekly', priority: '0.9' },
+    { loc: '/grid/', changefreq: 'weekly', priority: '0.9' },
+    { loc: '/glassmorphism/', changefreq: 'weekly', priority: '0.8' },
+    { loc: '/gradient/', changefreq: 'weekly', priority: '0.8' },
+    { loc: '/border-radius/', changefreq: 'weekly', priority: '0.8' },
+    { loc: '/reference/', changefreq: 'daily', priority: '0.9' }
   ];
 
   const xmlEntries = routes
