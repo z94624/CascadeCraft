@@ -52,6 +52,7 @@ export default defineNuxtConfig({
 
   // ─── App Head ────────────────────────────────────────────────────────────
   app: {
+    baseURL: process.env.NUXT_APP_BASE_URL || (process.env.NODE_ENV === 'production' ? '/CascadeCraft/' : '/'),
     head: {
       htmlAttrs: {
         class: 'dark'
