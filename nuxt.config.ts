@@ -68,8 +68,8 @@ export default defineNuxtConfig({
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'ai-optimized', content: 'true' },
         { name: 'generator', content: 'CascadeCraft Nuxt 4 + Nuxt UI Engine' },
-        ...(process.env.GOOGLE_SITE_VERIFICATION
-          ? [{ name: 'google-site-verification', content: process.env.GOOGLE_SITE_VERIFICATION }]
+        ...(process.env.GOOGLE_SITE_VERIFICATION || 'XRzYLv0hOfBb6AQwbHQ8a-VeICyJfoi2QljNvyDYZNE'
+          ? [{ name: 'google-site-verification', content: process.env.GOOGLE_SITE_VERIFICATION || 'XRzYLv0hOfBb6AQwbHQ8a-VeICyJfoi2QljNvyDYZNE' }]
           : [])
       ],
       link: [

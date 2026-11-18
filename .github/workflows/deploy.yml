@@ -35,6 +35,7 @@ jobs:
         env:
           NITRO_PRESET: github-pages
           NUXT_APP_BASE_URL: /CascadeCraft/
+          GOOGLE_SITE_VERIFICATION: ${{ secrets.GOOGLE_SITE_VERIFICATION || 'XRzYLv0hOfBb6AQwbHQ8a-VeICyJfoi2QljNvyDYZNE' }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
